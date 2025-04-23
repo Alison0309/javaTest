@@ -7,10 +7,10 @@ pipeline {
             }
         }
         stage('Build') {
-            steps { bat 'start gradlew build'}
+            steps { powershell 'gradle clean build'}
         }
         stage('Test') {
-            steps { bat 'start gradlew test'}
+            steps { powershell 'gradle test'}
         }
         stage('Deploy') {
             steps { powershell 'java -jar build/libs/hello-world-javaV1.jar'}
